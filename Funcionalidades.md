@@ -1,48 +1,107 @@
 #include <iostream>
+#include <string>
 using namespace std;
-int main()
+/*struct carros{
+    char placa[6];
+    int hora;
+    int minuto;
+};*/
+
+int
+main ()
 {
-    int puestos = 40, opc, opc2, placa, puestoocupado, puestosdispo, modificar, tarifa = 50;
-    
-    cout<<"1. Entrada de coche"<<endl;
-    cout<<"2. Salida de coche"<<endl;
-    cout<<"3. Modificar la tarifa del parqueadero"<<endl;
-    cout<<"4. Consultar"<<endl;
-    cout<<"Opción: "; cin>>opc;
-    switch(opc)
-        {
-        case 1:
-            cout<<"Digite placa del coche: "; cin>>placa;
-            placa = puestos - 1;
-            puestoocupado = placa;
-            
-            cout<<"Su puesto ocupado es el: "<<puestoocupado;break;
-            
-        case 2:
-            cout<<"Digite placa del coche: "; cin>>placa;
-            placa = puestos + 1;
-            puestosdispo = placa;
-            cout<<"Puesto disponibles: "<<puestosdispo<<endl;
-            cout<<"Su tarifa de pago es de: ";break;
-        case 3:
-            cout<<"Ingrese la tarifa que desea implementar de ahora en adelante: "; cin>>modificar;
-            tarifa = modificar;
-            cout<<"Su tarifa es de: "<<tarifa<<" por minuto."<<endl;break;
-        case 4:
-            cout<<"¿Que deseas consultar?"<<endl;
-            cout<<"1. Consultar cantidad y porcentaje de puestos disponibles"<<endl;
-            cout<<"2. Consultar ingresos monetarios"<<endl;
-            cout<<"Opción: "; cin>>opc2;
-            switch(opc2)
-            {
-                case 1:
-                    cout<<"La cantidad de puestos disponible es:"<<endl;
-                    cout<<"El porcentaje de puestos disponibles es: "<<endl;break;
-                case 2:
-                    cout<<"Los ingresos monetarios del dia de hoy son: "<<endl;break;
-            }
-        }
+  int puestos =
+	40, hora, minuto, opc, opc2, puestoocupado, puestosdispo,
+	modificar, modificar2, tarifa2 = 3000, tarifa = 50,tarifat, i =
+	40, parking, parkingh , parkingm, entrada, hora2, minuto2;
+  bool par[40];
+  string placa;
+  while (opc != 5)
+	{
+	  cout << endl << "1. Entrada de coche" << endl;
+	  cout << "2. Salida de coche" << endl;
+	  cout << "3. Modificar la tarifa del parqueadero" << endl;
+	  cout << "4. Consultar" << endl;
+	  cout << "5. Salir" << endl;
+	  cout << "Opción: ";
+	  cin >> opc;
+	  switch (opc)
+		{
+		case 1:
+		  cout << "Digite la placa del coche: ";
+		  cin >> placa;
+		  cout << "\nDigite hora de entrada";
+		  cout << "\nHora: "; 
+		  cin >> hora;
+		  cout << "Minuto: ";
+		  cin >> minuto;
+		  //Informacion del coche 
+		  cout << "Informacion de la entrada";
+		  cout << "\nPlaca del coche: " << placa;
+		  cout << "\nHora de entrada: " << hora << ":" << minuto;
+
+		  /*for(){
+		     if(bool==0){
+		     cout<<asi
+		     break;
+		     }else
+		     {
+
+		     }
+		     } */
+		  break;
+
+		case 2:
+		  cout << "Digite placa del coche: ";
+		  cin >> placa;
+		  cout << "\nDigite hora de salida";
+		  cout << "\nHora: ";
+		  cin >> hora2;
+		  cout << "\nMinuto: ";
+		  cin >> minuto2;
+		  cout << "\nTiempo de parking hora: "; parkingh=hora2 - hora ;
+		  cout <<parkingh ;
+		  cout << "\nTiempo de parking minutos: "; parkingm=minuto2 - minuto; 
+		  cout << parkingm;
+		  tarifat = (tarifa * parkingm) + (tarifa2 * parkingh);
+		  cout << "\nSu tarifa de pago es de: " << tarifat;
+		  break;
+		case 3:
+		  cout <<
+			"Ingrese la tarifa en horas que desea implementar de ahora en adelante: ";
+		  cin >> modificar2;
+		  tarifa2 = modificar2;
+		  cout << "Su tarifa es de: " << tarifa2 << " por hora." << endl;
+		  cout <<
+			"Ingrese la tarifa en minutos que desea implementar de ahora en adelante: ";
+		  cin >> modificar;
+		  tarifa = modificar;
+		  cout << "Su tarifa es de: " << tarifa << " por minuto." << endl;
+		  break;
+		case 4:
+		  cout << "¿Que deseas consultar?" << endl;
+		  cout << "1. Consultar cantidad y porcentaje de puestos disponibles"
+			<< endl;
+		  cout << "2. Consultar ingresos monetarios" << endl;
+		  cout << "Opción: ";
+		  cin >> opc2;
+		  switch (opc2)
+			{
+			case 1:
+			  for (int i = 1; i <= 40; i++)
+				{
+				  cout << i << endl;
+				  i = i;
+				}
+			  cout << "La cantidad de puestos disponible son: " << i << endl;
+			  cout << "El porcentaje de puestos disponibles son: " << i <<
+				endl;
+			  break;
+			case 2:
+			  cout << "Los ingresos monetarios del dia de hoy son: " << endl;
+			  break;
+			}
+		}
+	}
 }
-
-
 
