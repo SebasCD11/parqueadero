@@ -10,12 +10,12 @@ using namespace std;
 int
 main ()
 {
-  int puestos =
-	40, hora, minuto, opc, opc2, puestoocupado, puestosdispo,
-	modificar, modificar2, tarifa2 = 3000, tarifa = 50,tarifat, i =
-	40, parking, parkingh , parkingm, entrada, hora2, minuto2;
+  int puestos =40, hora, minuto, opc, opc2, puestoocupado, puestosdispo, modificar, modificar2, tarifa2 = 3000, tarifa = 50,tarifat, i = 40, parking, parkingh , parkingm, entrada, hora2, minuto2;
   bool par[40];
-  string placa;
+  int carros[40];
+  char placa[6];
+    int puestos_disponibles = 0; // Variable para almacenar la cantidad de puestos disponibles
+
   while (opc != 5)
 	{
 	  cout << endl << "1. Entrada de coche" << endl;
@@ -28,8 +28,14 @@ main ()
 	  switch (opc)
 		{
 		case 1:
+		for(int i=0;i<40;i++){
+		if(par[i]==0){
+		    cout<<i;
+		    par[i]=1;
 		  cout << "Digite la placa del coche: ";
-		  cin >> placa;
+		  for(int i=0;i<6;i++){
+		  cin >> placa[i];
+		  }
 		  cout << "\nDigite hora de entrada";
 		  cout << "\nHora: "; 
 		  cin >> hora;
@@ -37,9 +43,12 @@ main ()
 		  cin >> minuto;
 		  //Informacion del coche 
 		  cout << "Informacion de la entrada";
-		  cout << "\nPlaca del coche: " << placa;
+		  cout << "\nPlaca del coche: " ;
+		  for(int i=0;i<6;i++){
+		  cout << placa[i];
+		  }
 		  cout << "\nHora de entrada: " << hora << ":" << minuto;
-
+            
 		  /*for(){
 		     if(bool==0){
 		     cout<<asi
@@ -49,11 +58,16 @@ main ()
 
 		     }
 		     } */
+		     i=40;
+		}
+		}
 		  break;
+		    
+		
 
 		case 2:
 		  cout << "Digite placa del coche: ";
-		  cin >> placa;
+		  //cin >> placa(6);
 		  cout << "\nDigite hora de salida";
 		  cout << "\nHora: ";
 		  cin >> hora2;
@@ -88,20 +102,21 @@ main ()
 		  switch (opc2)
 			{
 			case 1:
-			  for (int i = 1; i <= 40; i++)
-				{
-				  cout << i << endl;
-				  i = i;
-				}
-			  cout << "La cantidad de puestos disponible son: " << i << endl;
-			  cout << "El porcentaje de puestos disponibles son: " << i <<
-				endl;
+                 puestos_disponibles = 1;
+                for (int i = 1; i < puestos; i++) {
+                    if (!par[i]) {
+                            puestos_disponibles++;
+                    }
+                }
+			  cout << "La cantidad de parqueaderos son : " << puestos_disponibles << endl;
+			  cout << "Los puestos disponibles son : " << (puestos_disponibles / puestos) * 40 << endl;
 			  break;
 			case 2:
 			  cout << "Los ingresos monetarios del dia de hoy son: " << endl;
 			  break;
 			}
+		case 5:
+	    cout << "Volver al menu principal " << endl;	
 		}
 	}
 }
-
