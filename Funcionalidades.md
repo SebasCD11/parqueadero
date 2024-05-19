@@ -1,22 +1,50 @@
 #include <iostream>
 #include <string>
+#include <conio.h>
+#include <stdlib.h>
+//#include <windows.h>
 using namespace std;
-/*struct carros{
-    char placa[6];
-    int hora;
-    int minuto;
-};*/
 
-int
-main ()
+int main ()
 {
-  int puestos =40, hora, minuto, opc, opc2, puestoocupado, puestosdispo, modificar, modificar2, tarifa2 = 3000, tarifa = 50,tarifat, i = 40, parking, parkingh , parkingm, entrada, hora2, minuto2;
-  bool par[40];
-  int carros[40];
-  char placa[6];
+    int puestos =40, hora, minuto, opc, opc2, puestoocupado, puestosdispo, modificar, modificar2, tarifa2 = 3000, tarifa = 50,tarifat, i = 40, parking, parkingh , parkingm, entrada, hora2, minuto2;
+    bool par[40];
+    int carros[40];
+    char placa[6];
     int puestos_disponibles = 0; // Variable para almacenar la cantidad de puestos disponibles
-
-  while (opc != 5)
+    int horas=0, minutos=0, segundos= 0; bool reloj = true; //reloj
+    
+    while(reloj)
+    {
+        if(horas < 12)
+        {
+            cout<< horas <<":" << minutos <<":"<<segundos;
+            //Sleep(1000);
+        }
+        else
+        {
+            cout<< horas <<":" << minutos <<":"<<segundos;
+            //Sleep(1000);
+        }
+        segundos++;
+        if(segundos == 60)
+        {
+            minutos++;
+            segundos = 0;
+        }
+        if(minutos == 60)
+        {
+            horas++;
+            minutos = 0;
+        }
+        if(horas >= 24)
+        {
+            horas=0;
+            minutos=0;
+            segundos=0;
+        }
+    }
+    while (opc != 5)
 	{
 	  cout << endl << "1. Entrada de coche" << endl;
 	  cout << "2. Salida de coche" << endl;
@@ -118,5 +146,7 @@ main ()
 		case 5:
 	    cout << "Volver al menu principal " << endl;	
 		}
+		getch();
+		return 0;
 	}
 }
