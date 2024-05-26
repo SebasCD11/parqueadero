@@ -14,7 +14,7 @@ int main ()
     int puestos_disponibles = 0; // Variable para almacenar la cantidad de puestos disponibles
     int horas=0, minutos=0, segundos= 0; bool reloj = true; //reloj
     
-    while(reloj)
+    /*while(reloj)
     {
         if(horas < 12)
         {
@@ -43,7 +43,7 @@ int main ()
             minutos=0;
             segundos=0;
         }
-    }
+    }*/
     while (opc != 5)
 	{
 	  cout << endl << "1. Entrada de coche" << endl;
@@ -56,19 +56,35 @@ int main ()
 	  switch (opc)
 		{
 		case 1:
-		for(int i=0;i<40;i++){
-		if(par[i]==0){
-		    cout<<i;
-		    par[i]=1;
-		  cout << "Digite la placa del coche: ";
-		  for(int i=0;i<6;i++){
-		  cin >> placa[i];
-		  }
-		  cout << "\nDigite hora de entrada";
-		  cout << "\nHora: "; 
-		  cin >> hora;
+		    for(int i=0;i<40;i++){
+		    if(par[i]==0){
+		        cout<<i;
+		        par[i]=1;
+		    do{
+		    cout << "Digite la placa del coche: ";
+		    for(int i=0;i<6;i++){
+		    cin >> placa[i];
+		    }
+		    //do{
+		    cout << "\nDigite hora de entrada";
+		    cout << "\nHora: "; 
+		    cin >> hora;
+		    if(hora>23||horas<0)
+		    {
+		        cout<<"Digite una hora correcta, por favor.";
+		        getch();
+		    }
+		    }while(hora>23||horas<0);
+		    do{
 		  cout << "Minuto: ";
 		  cin >> minuto;
+		  if(minuto>59||minuto<0)
+		  {
+		    cout<<"Digite los minutos correctos, por favor.";
+		    getch();
+		  } 
+		  }while(minuto>59||minuto<0);
+		  
 		  //Informacion del coche 
 		  cout << "Informacion de la entrada";
 		  cout << "\nPlaca del coche: " ;
@@ -96,11 +112,26 @@ int main ()
 		case 2:
 		  cout << "Digite placa del coche: ";
 		  //cin >> placa(6);
+		  do{
 		  cout << "\nDigite hora de salida";
 		  cout << "\nHora: ";
 		  cin >> hora2;
+		  
+		  if(hora2>23||hora2<0)
+		  {
+		    cout<<"Digite una hora correcta, por favor.";
+		    getch();
+		  } 
+		  }while(hora2>23||hora2<0);
+		  do{
 		  cout << "\nMinuto: ";
 		  cin >> minuto2;
+		  if(minuto2>23||minuto2<0)
+		  {
+		    cout<<"Digite los minutos correctos, por favor.";
+		    getch();
+		  } 
+		  }while(minuto2>59||minuto2<0);
 		  cout << "\nTiempo de parking hora: "; parkingh=hora2 - hora ;
 		  cout <<parkingh ;
 		  cout << "\nTiempo de parking minutos: "; parkingm=minuto2 - minuto; 
